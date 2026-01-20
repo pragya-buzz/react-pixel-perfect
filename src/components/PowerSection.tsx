@@ -20,7 +20,7 @@ const PowerSection = () => {
               </span>
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+            <h2 className="text-3xl md:text-4xl font-extrabold">
               We're leading The Power Of Technology
             </h2>
 

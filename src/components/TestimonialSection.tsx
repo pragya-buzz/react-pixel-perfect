@@ -8,7 +8,7 @@ const TestimonialSection = () => {
         <div className="max-w-3xl mx-auto text-center">
           <Quote className="w-16 h-16 mx-auto mb-8 opacity-50" />
           
-          <blockquote className="text-xl md:text-2xl lg:text-3xl font-heading leading-relaxed mb-8">
+          <blockquote className="text-xl md:text-2xl lg:text-3xl font-semibold leading-relaxed mb-8">
             "Tradency work and mindset represents the pinnacle of perfection 
             while still being efficient and communicative."
           </blockquote>
