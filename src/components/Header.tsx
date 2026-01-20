@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container flex items-center justify-between h-16 md:h-20">
-        <a href="/" className="text-xl md:text-2xl font-heading font-bold text-foreground">
+        <a href="/" className="text-xl md:text-2xl font-bold text-foreground">
           Tradency
         </a>
 

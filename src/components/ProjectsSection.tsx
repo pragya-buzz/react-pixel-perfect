@@ -35,7 +35,7 @@ const ProjectsSection = () => {
       <div className="container">
         <div className="text-center mb-12">
           <Badge variant="secondary" className="mb-4">Projects</Badge>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold">
+          <h2 className="text-3xl md:text-4xl font-extrabold">
             Our latest best projects
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
@@ -67,7 +67,7 @@ const ProjectsSection = () => {
                     <Badge key={j} variant="outline">{tag}</Badge>
                   ))}
                 </div>
-                <h3 className="text-2xl font-heading font-bold">{project.title}</h3>
+                <h3 className="text-2xl font-bold">{project.title}</h3>
                 <p className="text-muted-foreground">{project.description}</p>
                 <button className="flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
                   View Project <ArrowRight className="w-4 h-4" />

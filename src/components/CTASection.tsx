@@ -8,7 +8,7 @@ const CTASection = () => {
       <div className="container">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+            <h2 className="text-3xl md:text-4xl font-extrabold">
               Ready to work on your project?
             </h2>
             <p className="opacity-90 text-lg max-w-md">
