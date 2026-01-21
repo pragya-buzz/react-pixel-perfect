@@ -34,7 +34,9 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:block">
-          <Button size="sm">Let's Talk</Button>
+          <a href="/contact">
+            <Button size="sm">Let's Talk</Button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -61,7 +63,9 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
-            <Button size="sm" className="w-fit">Let's Talk</Button>
+            <a href="/contact">
+              <Button size="sm" className="w-fit">Let's Talk</Button>
+            </a>
           </nav>
         </div>
       )}
