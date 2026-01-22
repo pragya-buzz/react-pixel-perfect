@@ -11,6 +11,12 @@ import {
   LucideIcon
 } from 'lucide-react';
 
+// Hero images for service pages
+import heroUiux from '@/assets/service-hero-uiux.jpg';
+import heroBrand from '@/assets/service-hero-brand.jpg';
+import heroMarketing from '@/assets/service-hero-marketing.jpg';
+import heroStrategy from '@/assets/service-hero-strategy.jpg';
+
 export interface ServiceMeta {
   name: string;
   slug: string;

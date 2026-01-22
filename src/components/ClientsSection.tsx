@@ -1,4 +1,6 @@
 import { Sparkles, Shield, Users, Globe, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { fadeIn, viewportSettings } from '@/lib/animations';
 
 const clients = [
   { icon: Sparkles, name: 'Astrolab' },
@@ -11,7 +13,13 @@ const clients = [
 
 const ClientsSection = () => {
   return (
-    <section className="py-8 border-y border-border bg-muted/30">
+    <motion.section 
+      className="py-8 border-y border-border bg-muted/30"
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportSettings}
+      variants={fadeIn}
+    >
       <div className="container">
         <div className="flex items-center gap-8 overflow-hidden">
           <div className="flex animate-marquee gap-16 items-center">
@@ -29,7 +37,7 @@ const ClientsSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

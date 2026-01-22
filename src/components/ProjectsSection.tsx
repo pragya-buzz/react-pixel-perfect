@@ -1,5 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { motion } from 'framer-motion';
+import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, viewportSettings } from '@/lib/animations';
 
 import project1 from '@/assets/project-branding.jpg';
 import project2 from '@/assets/project-ux.jpg';
@@ -31,9 +33,15 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-16 md:py-24">
+    <section id="projects" className="py-16 md:py-24 overflow-hidden">
       <div className="container">
-        <div className="text-center mb-12">
+        <motion.div 
+          className="text-center mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportSettings}
+          variants={fadeInUp}
+        >
           <Badge variant="secondary" className="mb-4">Projects</Badge>
           <h2 className="text-3xl md:text-4xl font-extrabold">
             Our latest best projects
@@ -41,27 +49,37 @@ const ProjectsSection = () => {
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             Take a look at our most recent design & development projects
           </p>
-        </div>
+        </motion.div>
 
         <div className="space-y-12">
           {projects.map((project, i) => (
-            <div
+            <motion.div
               key={i}
               className={`grid md:grid-cols-2 gap-8 items-center ${
                 project.align === 'left' ? 'md:flex-row-reverse' : ''
               }`}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportSettings}
+              variants={staggerContainer}
             >
-              <div className={project.align === 'left' ? 'md:order-2' : ''}>
-                <div className="rounded-2xl overflow-hidden shadow-card">
+              <motion.div 
+                className={project.align === 'left' ? 'md:order-2' : ''}
+                variants={project.align === 'left' ? fadeInRight : fadeInLeft}
+              >
+                <div className="rounded-2xl overflow-hidden shadow-card group">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-64 md:h-80 object-cover"
+                    className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-              </div>
+              </motion.div>
               
-              <div className={`space-y-4 ${project.align === 'left' ? 'md:order-1' : ''}`}>
+              <motion.div 
+                className={`space-y-4 ${project.align === 'left' ? 'md:order-1' : ''}`}
+                variants={project.align === 'left' ? fadeInLeft : fadeInRight}
+              >
                 <div className="flex gap-2">
                   {project.tags.map((tag, j) => (
                     <Badge key={j} variant="outline">{tag}</Badge>
@@ -69,11 +87,11 @@ const ProjectsSection = () => {
                 </div>
                 <h3 className="text-2xl font-bold">{project.title}</h3>
                 <p className="text-muted-foreground">{project.description}</p>
-                <button className="flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
-                  View Project <ArrowRight className="w-4 h-4" />
+                <button className="flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all group">
+                  View Project <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>

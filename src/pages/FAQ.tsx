@@ -7,7 +7,9 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, HelpCircle, MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { fadeInUp, staggerContainer, staggerItem, viewportSettings } from '@/lib/animations';
 
 const faqs = [
   {
@@ -59,59 +61,105 @@ const FAQ = () => {
       
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 md:pt-40 md:pb-24">
+        <section className="pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
           <div className="container">
-            <div className="max-w-3xl mx-auto text-center">
-              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
+            <motion.div 
+              className="max-w-3xl mx-auto text-center"
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+            >
+              <motion.div 
+                variants={fadeInUp}
+                className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6"
+              >
+                <HelpCircle className="w-8 h-8 text-primary" />
+              </motion.div>
+              <motion.span 
+                variants={fadeInUp}
+                className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6"
+              >
                 FAQ
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+              </motion.span>
+              <motion.h1 
+                variants={fadeInUp}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6"
+              >
                 Frequently Asked Questions
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground">
+              </motion.h1>
+              <motion.p 
+                variants={fadeInUp}
+                className="text-lg md:text-xl text-muted-foreground"
+              >
                 Find answers to common questions about our services, process, and how we can help your business grow.
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
           </div>
         </section>
 
         {/* FAQ Accordion Section */}
-        <section className="pb-16 md:pb-24">
+        <section className="pb-16 md:pb-24 overflow-hidden">
           <div className="container">
-            <div className="max-w-3xl mx-auto">
-              <Accordion type="single" collapsible className="w-full">
+            <motion.div 
+              className="max-w-3xl mx-auto"
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportSettings}
+              variants={staggerContainer}
+            >
+              <Accordion type="single" collapsible className="w-full space-y-4">
                 {faqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`item-${index}`} className="border-border">
-                    <AccordionTrigger className="text-left text-base md:text-lg font-medium text-foreground hover:text-primary hover:no-underline py-6">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-6">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
+                  <motion.div key={index} variants={staggerItem}>
+                    <AccordionItem 
+                      value={`item-${index}`} 
+                      className="bg-card rounded-xl px-6 shadow-card border-none"
+                    >
+                      <AccordionTrigger className="text-left text-base md:text-lg font-medium text-foreground hover:text-primary hover:no-underline py-6">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-6">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </motion.div>
                 ))}
               </Accordion>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* CTA Section */}
         <section className="pb-16 md:pb-24">
           <div className="container">
-            <div className="max-w-3xl mx-auto text-center bg-muted/50 rounded-2xl p-8 md:p-12">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Still have questions?
-              </h2>
-              <p className="text-muted-foreground mb-8">
-                Can't find the answer you're looking for? Our team is here to help.
-              </p>
-              <a href="/contact">
-                <Button size="lg" className="group">
-                  Contact Us
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </a>
-            </div>
+            <motion.div 
+              className="max-w-3xl mx-auto text-center bg-muted/50 rounded-2xl p-8 md:p-12 relative overflow-hidden"
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportSettings}
+              variants={fadeInUp}
+            >
+              {/* Decorative elements */}
+              <div className="absolute top-4 left-4 w-16 h-16 border border-primary/10 rounded-full" />
+              <div className="absolute bottom-4 right-4 w-12 h-12 border border-primary/10 rounded-lg rotate-12" />
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-6">
+                  <MessageCircle className="w-7 h-7 text-primary" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                  Still have questions?
+                </h2>
+                <p className="text-muted-foreground mb-8">
+                  Can't find the answer you're looking for? Our team is here to help.
+                </p>
+                <a href="/contact">
+                  <Button size="lg" className="group">
+                    Contact Us
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </a>
+              </div>
+            </motion.div>
           </div>
         </section>
       </main>
