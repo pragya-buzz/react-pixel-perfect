@@ -1,14 +1,32 @@
 import { ServiceData } from '@/components/ServicePageTemplate';
+import { 
+  Palette, 
+  PenTool, 
+  ShoppingBag, 
+  Fingerprint, 
+  Compass, 
+  FileText, 
+  TrendingUp, 
+  Share2,
+  LucideIcon
+} from 'lucide-react';
 
-export const allServices = [
-  { name: 'UI/UX Design', slug: 'ui-ux-design', description: 'User-centered designs that drive engagement and conversions' },
-  { name: 'Graphic Design', slug: 'graphic-design', description: 'Visual storytelling that captures your brand essence' },
-  { name: 'Merchandise Design', slug: 'merchandise-design', description: 'Custom merchandise that builds brand loyalty' },
-  { name: 'Brand Identity', slug: 'brand-identity', description: 'Memorable brand identities that stand out' },
-  { name: 'Creative Strategy', slug: 'creative-strategy', description: 'Strategic planning for maximum business impact' },
-  { name: 'Content Services', slug: 'content-services', description: 'Compelling content that connects and converts' },
-  { name: 'Digital Marketing', slug: 'digital-marketing', description: 'Data-driven campaigns that deliver results' },
-  { name: 'Social Media Marketing', slug: 'social-media-marketing', description: 'Social strategies that grow your audience' },
+export interface ServiceMeta {
+  name: string;
+  slug: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+export const allServices: ServiceMeta[] = [
+  { name: 'UI/UX Design', slug: 'ui-ux-design', description: 'User-centered designs that drive engagement and conversions', icon: Palette },
+  { name: 'Graphic Design', slug: 'graphic-design', description: 'Visual storytelling that captures your brand essence', icon: PenTool },
+  { name: 'Merchandise Design', slug: 'merchandise-design', description: 'Custom merchandise that builds brand loyalty', icon: ShoppingBag },
+  { name: 'Brand Identity', slug: 'brand-identity', description: 'Memorable brand identities that stand out', icon: Fingerprint },
+  { name: 'Creative Strategy', slug: 'creative-strategy', description: 'Strategic planning for maximum business impact', icon: Compass },
+  { name: 'Content Services', slug: 'content-services', description: 'Compelling content that connects and converts', icon: FileText },
+  { name: 'Digital Marketing', slug: 'digital-marketing', description: 'Data-driven campaigns that deliver results', icon: TrendingUp },
+  { name: 'Social Media Marketing', slug: 'social-media-marketing', description: 'Social strategies that grow your audience', icon: Share2 },
 ];
 
 export const getOtherServices = (currentSlug: string) => {
@@ -18,6 +36,7 @@ export const getOtherServices = (currentSlug: string) => {
       name: s.name,
       description: s.description,
       href: `/services/${s.slug}`,
+      icon: s.icon,
     }));
 };
 
@@ -25,6 +44,7 @@ export const uiuxDesignData: ServiceData = {
   name: 'UI/UX Design',
   headline: 'UI/UX Design',
   subheadline: 'Create intuitive digital experiences that delight users and drive measurable business growth.',
+  icon: Palette,
   idealClients: [
     'Startups launching their first digital product',
     'Businesses looking to redesign outdated interfaces',
@@ -80,6 +100,7 @@ export const graphicDesignData: ServiceData = {
   name: 'Graphic Design',
   headline: 'Graphic Design',
   subheadline: 'Visual communications that capture attention, convey your message, and leave lasting impressions.',
+  icon: PenTool,
   idealClients: [
     'Brands needing consistent visual marketing materials',
     'Companies launching new products or campaigns',
@@ -132,6 +153,7 @@ export const merchandiseDesignData: ServiceData = {
   name: 'Merchandise Design',
   headline: 'Merchandise Design',
   subheadline: 'Custom branded merchandise that turns customers into walking ambassadors for your brand.',
+  icon: ShoppingBag,
   idealClients: [
     'Brands looking to create memorable promotional items',
     'Companies planning events, conferences, or trade shows',
@@ -184,6 +206,7 @@ export const brandIdentityData: ServiceData = {
   name: 'Brand Identity',
   headline: 'Brand Identity & Voice',
   subheadline: 'Build a distinctive brand that resonates with your audience and stands the test of time.',
+  icon: Fingerprint,
   idealClients: [
     'Startups establishing their market presence',
     'Established businesses undergoing rebranding',
@@ -239,6 +262,7 @@ export const creativeStrategyData: ServiceData = {
   name: 'Creative Strategy',
   headline: 'Creative Strategy & Consulting',
   subheadline: 'Strategic creative direction that aligns your vision with market opportunities.',
+  icon: Compass,
   idealClients: [
     'Businesses planning major marketing initiatives',
     'Companies launching new products or services',
@@ -292,6 +316,7 @@ export const contentServicesData: ServiceData = {
   name: 'Content Services',
   headline: 'Content & Creativity Services',
   subheadline: 'Compelling content that builds trust, engages audiences, and drives conversions.',
+  icon: FileText,
   idealClients: [
     'Brands building thought leadership',
     'Companies needing consistent content production',
@@ -347,6 +372,7 @@ export const digitalMarketingData: ServiceData = {
   name: 'Digital Marketing',
   headline: 'Digital Marketing',
   subheadline: 'Data-driven campaigns that reach the right audience and deliver measurable ROI.',
+  icon: TrendingUp,
   idealClients: [
     'Businesses ready to scale their digital presence',
     'Companies seeking better marketing ROI',
@@ -402,6 +428,7 @@ export const socialMediaMarketingData: ServiceData = {
   name: 'Social Media Marketing',
   headline: 'Social Media Marketing',
   subheadline: 'Build genuine connections and grow an engaged community around your brand.',
+  icon: Share2,
   idealClients: [
     'Brands wanting to build authentic social presence',
     'Companies struggling with consistent posting',
