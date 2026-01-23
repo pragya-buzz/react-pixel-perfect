@@ -16,6 +16,7 @@ export interface ServiceData {
   headline: string;
   subheadline: string;
   icon?: LucideIcon;
+  heroImage?: string;
   idealClients: string[];
   problems: string[];
   solution: {

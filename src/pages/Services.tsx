@@ -4,26 +4,26 @@ import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, staggerItem, viewportSettings } from '@/lib/animations';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { allServices } from '@/data/servicesData';
+import { designDevServices, brandingServices, marketingServices } from '@/data/servicesData';
 
 const serviceCategories = [
   {
     icon: Code,
     title: 'Design & Development',
     description: 'We believe that a well-designed product creates meaningful connections between users, brands and stakeholders.',
-    services: allServices.filter(s => ['ui-ux-design', 'graphic-design', 'merchandise-design'].includes(s.slug)),
+    services: designDevServices,
   },
   {
     icon: Palette,
     title: 'Branding & Strategy',
     description: 'We create brands with a stakeholder-centric style that sets them apart with visual identity and personality.',
-    services: allServices.filter(s => ['brand-identity', 'creative-strategy', 'content-services'].includes(s.slug)),
+    services: brandingServices,
   },
   {
     icon: TrendingUp,
     title: 'Growth & Marketing',
     description: 'Our world-class marketing strategies empower businesses to scale their brands through targeted campaigns.',
-    services: allServices.filter(s => ['digital-marketing', 'social-media-marketing'].includes(s.slug)),
+    services: marketingServices,
   },
 ];
 
@@ -117,22 +117,42 @@ const Services = () => {
                         <motion.a
                           key={j}
                           href={`/services/${service.slug}`}
-                          className="group block p-6 bg-card rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 border border-transparent hover:border-primary/20"
+                          className="group block overflow-hidden bg-card rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 border border-transparent hover:border-primary/20"
                           variants={staggerItem}
                           whileHover={{ y: -5 }}
                         >
-                          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                            <ServiceIcon className="w-5 h-5 text-primary" />
+                          {/* Service Image */}
+                          {service.image ? (
+                            <div className="relative h-40 overflow-hidden">
+                              <img 
+                                src={service.image} 
+                                alt={service.name}
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                              <div className="absolute bottom-3 left-3">
+                                <div className="w-8 h-8 rounded-lg bg-primary/90 flex items-center justify-center">
+                                  <ServiceIcon className="w-4 h-4 text-primary-foreground" />
+                                </div>
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="relative h-40 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                              <ServiceIcon className="w-12 h-12 text-primary/50" />
+                            </div>
+                          )}
+                          
+                          <div className="p-5">
+                            <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+                              {service.name}
+                            </h3>
+                            <p className="text-sm text-muted-foreground mb-4">
+                              {service.description}
+                            </p>
+                            <span className="inline-flex items-center text-sm font-medium text-primary">
+                              Learn More <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                            </span>
                           </div>
-                          <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors">
-                            {service.name}
-                          </h3>
-                          <p className="text-sm text-muted-foreground mb-4">
-                            {service.description}
-                          </p>
-                          <span className="inline-flex items-center text-sm font-medium text-primary">
-                            Learn More <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                          </span>
                         </motion.a>
                       );
                     })}

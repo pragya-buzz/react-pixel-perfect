@@ -2,46 +2,26 @@ import { Code, Palette, TrendingUp, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, staggerItem, viewportSettings } from '@/lib/animations';
-
-import merchImage from '@/assets/service-merch.jpg';
-import uiuxImage from '@/assets/service-uiux.jpg';
-import graphicImage from '@/assets/service-graphic.jpg';
-import brandImage from '@/assets/service-brand.jpg';
-import strategyImage from '@/assets/service-strategy.jpg';
-import contentImage from '@/assets/service-content.jpg';
-import digitalImage from '@/assets/service-digital.jpg';
-import socialImage from '@/assets/service-social.jpg';
+import { designDevServices, brandingServices, marketingServices } from '@/data/servicesData';
 
 const serviceCategories = [
   {
     icon: Code,
     title: 'Design & Development',
     description: 'We believe that a well-designed product creates meaningful connections between users, brands and stakeholders.',
-    services: [
-      { name: 'Merchandise Design', image: merchImage },
-      { name: 'UI/UX Design', image: uiuxImage },
-      { name: 'Graphic Design', image: graphicImage },
-    ],
+    services: designDevServices.slice(0, 3), // Show first 3
   },
   {
     icon: Palette,
     title: 'Branding & Strategy',
-    description: 'We create brands with a Stakeholder-centric style that sets them apart with visual identity and personality.',
-    services: [
-      { name: 'Brand Identity & Voice', image: brandImage },
-      { name: 'Creative Strategy & Consulting', image: strategyImage },
-      { name: 'Content & Creativity Services', image: contentImage },
-    ],
+    description: 'We create brands with a stakeholder-centric style that sets them apart with visual identity and personality.',
+    services: brandingServices,
   },
   {
     icon: TrendingUp,
     title: 'Growth & Marketing',
     description: 'Our world-class Marketing strategies empower businesses to scale their brands through targeted campaigns.',
-    services: [
-      { name: 'Digital Marketing', image: digitalImage },
-      { name: 'Social Media Marketing', image: socialImage },
-      { name: 'Content Creation', image: contentImage },
-    ],
+    services: marketingServices,
   },
 ];
 
@@ -92,9 +72,11 @@ const ServicesSection = () => {
                     </p>
                   </div>
                 </div>
-                <Button variant="outline" size="sm" className="w-fit shrink-0 group">
-                  Learn More <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <a href="/services">
+                  <Button variant="outline" size="sm" className="w-fit shrink-0 group">
+                    Learn More <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </a>
               </motion.div>
 
               <motion.div 
@@ -102,24 +84,31 @@ const ServicesSection = () => {
                 className="grid md:grid-cols-3 gap-6"
               >
                 {category.services.map((service, j) => (
-                  <motion.div
+                  <motion.a
                     key={j}
+                    href={`/services/${service.slug}`}
                     variants={staggerItem}
                     className="service-card group cursor-pointer"
                     whileHover={{ y: -5 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <img
-                      src={service.image}
-                      alt={service.name}
-                      className="w-full h-48 md:h-56 object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                    {service.image ? (
+                      <img
+                        src={service.image}
+                        alt={service.name}
+                        className="w-full h-48 md:h-56 object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="w-full h-48 md:h-56 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                        <service.icon className="w-12 h-12 text-primary/50" />
+                      </div>
+                    )}
                     <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
                       <h4 className="text-primary-foreground font-semibold">
                         {service.name}
                       </h4>
                     </div>
-                  </motion.div>
+                  </motion.a>
                 ))}
               </motion.div>
             </motion.div>
