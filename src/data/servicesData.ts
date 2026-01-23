@@ -8,6 +8,10 @@ import {
   FileText, 
   TrendingUp, 
   Share2,
+  Globe,
+  Smartphone,
+  LayoutDashboard,
+  Search,
   LucideIcon
 } from 'lucide-react';
 
@@ -16,23 +20,61 @@ import heroUiux from '@/assets/service-hero-uiux.jpg';
 import heroBrand from '@/assets/service-hero-brand.jpg';
 import heroMarketing from '@/assets/service-hero-marketing.jpg';
 import heroStrategy from '@/assets/service-hero-strategy.jpg';
+import heroWebdev from '@/assets/service-hero-webdev.jpg';
+import heroMobileapp from '@/assets/service-hero-mobileapp.jpg';
+import heroCms from '@/assets/service-hero-cms.jpg';
+import heroSeo from '@/assets/service-hero-seo.jpg';
+
+// Service card images
+import merchImage from '@/assets/service-merch.jpg';
+import uiuxImage from '@/assets/service-uiux.jpg';
+import graphicImage from '@/assets/service-graphic.jpg';
+import brandImage from '@/assets/service-brand.jpg';
+import strategyImage from '@/assets/service-strategy.jpg';
+import contentImage from '@/assets/service-content.jpg';
+import digitalImage from '@/assets/service-digital.jpg';
+import socialImage from '@/assets/service-social.jpg';
+import webdevImage from '@/assets/service-webdev.jpg';
+import mobileappImage from '@/assets/service-mobileapp.jpg';
+import cmsImage from '@/assets/service-cms.jpg';
+import seoImage from '@/assets/service-seo.jpg';
 
 export interface ServiceMeta {
   name: string;
   slug: string;
   description: string;
   icon: LucideIcon;
+  image?: string;
 }
 
+// Design & Development Services
+export const designDevServices: ServiceMeta[] = [
+  { name: 'Merchandise Design', slug: 'merchandise-design', description: 'Custom merchandise that builds brand loyalty', icon: ShoppingBag, image: merchImage },
+  { name: 'UI/UX Design', slug: 'ui-ux-design', description: 'User-centered designs that drive engagement', icon: Palette, image: uiuxImage },
+  { name: 'Graphic Design', slug: 'graphic-design', description: 'Visual storytelling that captures your brand', icon: PenTool, image: graphicImage },
+  { name: 'Website Development', slug: 'website-development', description: 'Modern websites that convert visitors', icon: Globe, image: webdevImage },
+  { name: 'Mobile App Development', slug: 'mobile-app-development', description: 'Native & cross-platform mobile solutions', icon: Smartphone, image: mobileappImage },
+  { name: 'CMS Development', slug: 'cms-development', description: 'Powerful content management systems', icon: LayoutDashboard, image: cmsImage },
+];
+
+// Branding & Strategy Services
+export const brandingServices: ServiceMeta[] = [
+  { name: 'Brand Identity', slug: 'brand-identity', description: 'Memorable brand identities that stand out', icon: Fingerprint, image: brandImage },
+  { name: 'Creative Strategy', slug: 'creative-strategy', description: 'Strategic planning for maximum impact', icon: Compass, image: strategyImage },
+  { name: 'Content Services', slug: 'content-services', description: 'Compelling content that connects', icon: FileText, image: contentImage },
+];
+
+// Growth & Marketing Services
+export const marketingServices: ServiceMeta[] = [
+  { name: 'Digital Marketing', slug: 'digital-marketing', description: 'Data-driven campaigns that deliver results', icon: TrendingUp, image: digitalImage },
+  { name: 'Social Media Marketing', slug: 'social-media-marketing', description: 'Social strategies that grow your audience', icon: Share2, image: socialImage },
+  { name: 'SEO', slug: 'seo', description: 'Boost visibility and organic traffic', icon: Search, image: seoImage },
+];
+
 export const allServices: ServiceMeta[] = [
-  { name: 'UI/UX Design', slug: 'ui-ux-design', description: 'User-centered designs that drive engagement and conversions', icon: Palette },
-  { name: 'Graphic Design', slug: 'graphic-design', description: 'Visual storytelling that captures your brand essence', icon: PenTool },
-  { name: 'Merchandise Design', slug: 'merchandise-design', description: 'Custom merchandise that builds brand loyalty', icon: ShoppingBag },
-  { name: 'Brand Identity', slug: 'brand-identity', description: 'Memorable brand identities that stand out', icon: Fingerprint },
-  { name: 'Creative Strategy', slug: 'creative-strategy', description: 'Strategic planning for maximum business impact', icon: Compass },
-  { name: 'Content Services', slug: 'content-services', description: 'Compelling content that connects and converts', icon: FileText },
-  { name: 'Digital Marketing', slug: 'digital-marketing', description: 'Data-driven campaigns that deliver results', icon: TrendingUp },
-  { name: 'Social Media Marketing', slug: 'social-media-marketing', description: 'Social strategies that grow your audience', icon: Share2 },
+  ...designDevServices,
+  ...brandingServices,
+  ...marketingServices,
 ];
 
 export const getOtherServices = (currentSlug: string) => {
@@ -51,6 +93,7 @@ export const uiuxDesignData: ServiceData = {
   headline: 'UI/UX Design',
   subheadline: 'Create intuitive digital experiences that delight users and drive measurable business growth.',
   icon: Palette,
+  heroImage: heroUiux,
   idealClients: [
     'Startups launching their first digital product',
     'Businesses looking to redesign outdated interfaces',
@@ -107,6 +150,7 @@ export const graphicDesignData: ServiceData = {
   headline: 'Graphic Design',
   subheadline: 'Visual communications that capture attention, convey your message, and leave lasting impressions.',
   icon: PenTool,
+  heroImage: heroUiux,
   idealClients: [
     'Brands needing consistent visual marketing materials',
     'Companies launching new products or campaigns',
@@ -160,6 +204,7 @@ export const merchandiseDesignData: ServiceData = {
   headline: 'Merchandise Design',
   subheadline: 'Custom branded merchandise that turns customers into walking ambassadors for your brand.',
   icon: ShoppingBag,
+  heroImage: heroUiux,
   idealClients: [
     'Brands looking to create memorable promotional items',
     'Companies planning events, conferences, or trade shows',
@@ -208,11 +253,183 @@ export const merchandiseDesignData: ServiceData = {
   closingStatement: 'Ready to create merchandise people love?',
 };
 
+export const websiteDevelopmentData: ServiceData = {
+  name: 'Website Development',
+  headline: 'Website Development',
+  subheadline: 'Build modern, high-performance websites that convert visitors into customers and grow your business.',
+  icon: Globe,
+  heroImage: heroWebdev,
+  idealClients: [
+    'Businesses launching or redesigning their online presence',
+    'Startups needing a professional website fast',
+    'Companies requiring e-commerce or booking functionality',
+    'Organizations wanting to improve website performance',
+    'Teams needing custom web applications',
+  ],
+  problems: [
+    'Your website looks outdated and doesn\'t represent your brand',
+    'Slow loading times are hurting user experience and SEO',
+    'The site isn\'t mobile-friendly or responsive',
+    'You can\'t easily update content without developer help',
+  ],
+  solution: {
+    title: 'Our Approach to Website Development',
+    description: 'We build websites that are fast, beautiful, and easy to manage. Using modern technologies and best practices, we create digital experiences that load quickly, rank well in search engines, and convert visitors into customers.',
+  },
+  deliverables: [
+    'Custom responsive website design',
+    'Front-end and back-end development',
+    'Content management system integration',
+    'E-commerce functionality (if needed)',
+    'SEO optimization and meta setup',
+    'Analytics and tracking implementation',
+    'Performance optimization',
+    'Training and documentation',
+  ],
+  process: [
+    { step: 'Discovery', description: 'Understanding your goals, audience, and technical requirements.' },
+    { step: 'Design', description: 'Creating wireframes and visual designs for your approval.' },
+    { step: 'Development', description: 'Building the website with clean, maintainable code.' },
+    { step: 'Testing', description: 'Rigorous testing across devices and browsers.' },
+    { step: 'Launch & Support', description: 'Smooth deployment and ongoing maintenance support.' },
+  ],
+  whyChooseUs: [
+    'Modern tech stack for speed and scalability',
+    'Mobile-first responsive design approach',
+    'SEO best practices built in from the start',
+    'Clean code that\'s easy to maintain',
+    'We train you to manage your own content',
+    'Ongoing support and maintenance available',
+  ],
+  faqs: [
+    { question: 'How long does a website project take?', answer: 'Simple websites take 4-6 weeks, while complex sites with custom features can take 8-12 weeks. We\'ll provide a timeline based on your specific needs.' },
+    { question: 'What platforms do you work with?', answer: 'We work with modern frameworks like React, Next.js, and Vue, as well as CMS platforms like WordPress, Webflow, and Shopify.' },
+    { question: 'Do you provide hosting?', answer: 'We can recommend and set up hosting, or work with your existing hosting provider. We partner with reliable services for optimal performance.' },
+    { question: 'What about ongoing maintenance?', answer: 'We offer maintenance packages for updates, security patches, and content changes. Most clients find this more cost-effective than ad-hoc requests.' },
+  ],
+  closingStatement: 'Ready to launch a website that works as hard as you do?',
+};
+
+export const mobileAppDevelopmentData: ServiceData = {
+  name: 'Mobile App Development',
+  headline: 'Mobile App Development',
+  subheadline: 'Create powerful mobile experiences that engage users and drive business growth on iOS and Android.',
+  icon: Smartphone,
+  heroImage: heroMobileapp,
+  idealClients: [
+    'Startups with innovative app ideas',
+    'Businesses wanting to reach mobile-first customers',
+    'Companies needing internal mobile tools',
+    'Organizations modernizing legacy systems',
+    'Teams extending their web product to mobile',
+  ],
+  problems: [
+    'Your competitors have apps and you don\'t',
+    'Users expect mobile access to your services',
+    'Web experience doesn\'t translate well to mobile',
+    'Current app is slow, buggy, or outdated',
+  ],
+  solution: {
+    title: 'Our Approach to Mobile Development',
+    description: 'We build mobile apps that users love to use. Whether native iOS/Android or cross-platform, we focus on performance, usability, and maintainability to deliver apps that succeed in competitive app stores.',
+  },
+  deliverables: [
+    'iOS and Android app development',
+    'Cross-platform solutions (React Native, Flutter)',
+    'UI/UX design for mobile',
+    'API development and integration',
+    'App store optimization and submission',
+    'Push notifications and analytics',
+    'Testing and quality assurance',
+    'Post-launch support and updates',
+  ],
+  process: [
+    { step: 'Discovery', description: 'Defining app features, user flows, and technical requirements.' },
+    { step: 'Design', description: 'Creating intuitive mobile interfaces and prototypes.' },
+    { step: 'Development', description: 'Building the app with scalable architecture.' },
+    { step: 'Testing', description: 'Comprehensive testing on real devices.' },
+    { step: 'Launch', description: 'App store submission and marketing support.' },
+  ],
+  whyChooseUs: [
+    'Experience with both native and cross-platform development',
+    'Focus on performance and battery efficiency',
+    'We understand app store requirements and guidelines',
+    'Agile approach with regular demos and feedback',
+    'Post-launch analytics to inform improvements',
+    'Ongoing maintenance and feature updates',
+  ],
+  faqs: [
+    { question: 'Native or cross-platform?', answer: 'It depends on your needs. Cross-platform (React Native/Flutter) is cost-effective for most apps. Native is better for performance-critical or hardware-intensive apps.' },
+    { question: 'How much does an app cost?', answer: 'Apps range from $30k for simple apps to $150k+ for complex ones. We provide detailed estimates after understanding your requirements.' },
+    { question: 'How long does development take?', answer: 'Simple apps take 3-4 months, complex apps 6-12 months. We use agile methodology so you see progress every sprint.' },
+    { question: 'Do you help with app store submission?', answer: 'Yes, we handle the entire submission process for both App Store and Google Play, including optimization for discoverability.' },
+  ],
+  closingStatement: 'Ready to bring your app idea to life?',
+};
+
+export const cmsDevelopmentData: ServiceData = {
+  name: 'CMS Development',
+  headline: 'CMS Development',
+  subheadline: 'Empower your team to manage content effortlessly with custom content management solutions.',
+  icon: LayoutDashboard,
+  heroImage: heroCms,
+  idealClients: [
+    'Marketing teams needing content autonomy',
+    'Publishers and media companies',
+    'E-commerce businesses with large catalogs',
+    'Organizations with multiple content contributors',
+    'Companies outgrowing their current CMS',
+  ],
+  problems: [
+    'You rely on developers for every content change',
+    'Current CMS is slow, clunky, or hard to use',
+    'Content is scattered across multiple systems',
+    'No workflow for content approval and publishing',
+  ],
+  solution: {
+    title: 'Our Approach to CMS Development',
+    description: 'We build content management systems that your team actually wants to use. Whether customizing existing platforms or building headless CMS solutions, we focus on usability, flexibility, and integration with your existing tools.',
+  },
+  deliverables: [
+    'Custom CMS development or customization',
+    'Headless CMS implementation',
+    'Content modeling and structure',
+    'Workflow and permissions setup',
+    'Third-party integrations',
+    'Migration from existing systems',
+    'Training and documentation',
+    'Ongoing support and optimization',
+  ],
+  process: [
+    { step: 'Analysis', description: 'Understanding your content types, workflows, and team needs.' },
+    { step: 'Architecture', description: 'Designing the content model and system structure.' },
+    { step: 'Development', description: 'Building and customizing the CMS solution.' },
+    { step: 'Migration', description: 'Safely moving content from existing systems.' },
+    { step: 'Training', description: 'Ensuring your team is confident using the new system.' },
+  ],
+  whyChooseUs: [
+    'We focus on editor experience, not just developer features',
+    'Scalable solutions that grow with your content needs',
+    'Integration expertise with marketing and analytics tools',
+    'Clean migrations that preserve your content history',
+    'Comprehensive training for all user levels',
+    'Ongoing support as your needs evolve',
+  ],
+  faqs: [
+    { question: 'Which CMS platforms do you work with?', answer: 'We work with WordPress, Strapi, Contentful, Sanity, and custom headless solutions. We\'ll recommend the best fit for your needs.' },
+    { question: 'What is a headless CMS?', answer: 'A headless CMS separates content management from presentation, allowing your content to power websites, apps, and other channels from one source.' },
+    { question: 'Can you migrate our existing content?', answer: 'Yes, we have experience migrating content from various platforms. We ensure all content, metadata, and relationships are preserved.' },
+    { question: 'How do you handle training?', answer: 'We provide hands-on training sessions, video tutorials, and documentation customized to your specific CMS setup and workflows.' },
+  ],
+  closingStatement: 'Ready to take control of your content?',
+};
+
 export const brandIdentityData: ServiceData = {
   name: 'Brand Identity',
   headline: 'Brand Identity & Voice',
   subheadline: 'Build a distinctive brand that resonates with your audience and stands the test of time.',
   icon: Fingerprint,
+  heroImage: heroBrand,
   idealClients: [
     'Startups establishing their market presence',
     'Established businesses undergoing rebranding',
@@ -269,6 +486,7 @@ export const creativeStrategyData: ServiceData = {
   headline: 'Creative Strategy & Consulting',
   subheadline: 'Strategic creative direction that aligns your vision with market opportunities.',
   icon: Compass,
+  heroImage: heroStrategy,
   idealClients: [
     'Businesses planning major marketing initiatives',
     'Companies launching new products or services',
@@ -323,6 +541,7 @@ export const contentServicesData: ServiceData = {
   headline: 'Content & Creativity Services',
   subheadline: 'Compelling content that builds trust, engages audiences, and drives conversions.',
   icon: FileText,
+  heroImage: heroStrategy,
   idealClients: [
     'Brands building thought leadership',
     'Companies needing consistent content production',
@@ -379,6 +598,7 @@ export const digitalMarketingData: ServiceData = {
   headline: 'Digital Marketing',
   subheadline: 'Data-driven campaigns that reach the right audience and deliver measurable ROI.',
   icon: TrendingUp,
+  heroImage: heroMarketing,
   idealClients: [
     'Businesses ready to scale their digital presence',
     'Companies seeking better marketing ROI',
@@ -435,6 +655,7 @@ export const socialMediaMarketingData: ServiceData = {
   headline: 'Social Media Marketing',
   subheadline: 'Build genuine connections and grow an engaged community around your brand.',
   icon: Share2,
+  heroImage: heroMarketing,
   idealClients: [
     'Brands wanting to build authentic social presence',
     'Companies struggling with consistent posting',
@@ -484,4 +705,61 @@ export const socialMediaMarketingData: ServiceData = {
     { question: 'Can you work with influencers?', answer: 'Absolutely. We can identify relevant influencers, manage outreach, and coordinate partnerships as part of your social strategy.' },
   ],
   closingStatement: 'Ready to build a community that cares about your brand?',
+};
+
+export const seoData: ServiceData = {
+  name: 'SEO',
+  headline: 'Search Engine Optimization',
+  subheadline: 'Increase your visibility, drive organic traffic, and outrank your competitors in search results.',
+  icon: Search,
+  heroImage: heroSeo,
+  idealClients: [
+    'Businesses wanting to reduce paid ad dependency',
+    'Companies with valuable content not getting found',
+    'E-commerce stores needing product visibility',
+    'Local businesses targeting geographic areas',
+    'Startups building long-term organic presence',
+  ],
+  problems: [
+    'Your website doesn\'t appear in search results',
+    'Competitors outrank you for important keywords',
+    'Organic traffic has plateaued or declined',
+    'You\'re too dependent on paid advertising',
+  ],
+  solution: {
+    title: 'Our Approach to SEO',
+    description: 'We take a holistic approach to SEO that combines technical excellence with compelling content. No black-hat tricks—just sustainable strategies that build authority and drive qualified traffic over time.',
+  },
+  deliverables: [
+    'Comprehensive SEO audit',
+    'Keyword research and strategy',
+    'Technical SEO optimization',
+    'On-page SEO improvements',
+    'Content optimization and creation',
+    'Link building and outreach',
+    'Local SEO (if applicable)',
+    'Monthly reporting and insights',
+  ],
+  process: [
+    { step: 'Audit', description: 'Complete analysis of your current SEO performance and opportunities.' },
+    { step: 'Strategy', description: 'Developing a prioritized roadmap based on impact and effort.' },
+    { step: 'Technical Fixes', description: 'Resolving site issues that hurt search performance.' },
+    { step: 'Content & Links', description: 'Creating optimized content and building quality backlinks.' },
+    { step: 'Monitor & Refine', description: 'Tracking rankings and adjusting strategy based on results.' },
+  ],
+  whyChooseUs: [
+    'White-hat strategies that stand the test of time',
+    'We focus on rankings AND business outcomes',
+    'Transparent reporting with clear metrics',
+    'Integrated with content and technical teams',
+    'We stay ahead of algorithm changes',
+    'No unrealistic promises—just honest projections',
+  ],
+  faqs: [
+    { question: 'How long does SEO take to work?', answer: 'SEO is a long-term investment. You\'ll typically see initial improvements in 3-4 months, with significant results in 6-12 months. We set realistic expectations from the start.' },
+    { question: 'Can you guarantee rankings?', answer: 'No reputable SEO agency can guarantee specific rankings. We can guarantee our process, effort, and transparency. Our track record speaks for itself.' },
+    { question: 'What about Google algorithm updates?', answer: 'Our white-hat approach means algorithm updates typically don\'t hurt our clients. We stay informed and adjust strategies proactively.' },
+    { question: 'Do you work with our existing content team?', answer: 'Absolutely. We can provide SEO guidance for your writers or create optimized content ourselves—whatever works best for your team.' },
+  ],
+  closingStatement: 'Ready to dominate search results?',
 };
