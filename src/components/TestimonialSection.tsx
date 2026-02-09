@@ -31,7 +31,7 @@ const TestimonialSection = () => {
   return (
     <section
       id="testimonials"
-      className="py-16 md:py-24 bg-gradient-primary text-primary-foreground overflow-hidden"
+      className="py-16 md:py-24 bg-muted/50 overflow-hidden"
     >
       <div className="container">
         <motion.div
@@ -41,8 +41,8 @@ const TestimonialSection = () => {
           variants={fadeInUp}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">What Our Clients Say</h2>
-          <p className="text-lg opacity-75">Real feedback from businesses we've helped grow</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-foreground">What Our Clients Say</h2>
+          <p className="text-lg text-muted-foreground">Real feedback from businesses we've helped grow</p>
         </motion.div>
 
         <motion.div
@@ -56,21 +56,21 @@ const TestimonialSection = () => {
             <motion.div
               key={i}
               variants={staggerItem}
-              className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/15 rounded-2xl p-6 md:p-8 flex flex-col"
+              className="bg-card border border-border rounded-2xl p-6 md:p-8 flex flex-col shadow-sm"
             >
-              <Quote className="w-8 h-8 mb-4 opacity-40 shrink-0" />
-              <blockquote className="text-base md:text-lg font-medium leading-relaxed mb-6 flex-1">
+              <Quote className="w-8 h-8 mb-4 text-primary/40 shrink-0" />
+              <blockquote className="text-base md:text-lg font-medium leading-relaxed mb-6 flex-1 text-foreground">
                 "{t.quote}"
               </blockquote>
-              <div className="flex items-center gap-3 pt-4 border-t border-primary-foreground/15">
+              <div className="flex items-center gap-3 pt-4 border-t border-border">
                 <img
                   src={t.avatar}
                   alt={t.name}
-                  className="w-11 h-11 rounded-full object-cover border-2 border-primary-foreground/30"
+                  className="w-11 h-11 rounded-full object-cover border-2 border-border"
                 />
                 <div>
-                  <p className="font-semibold text-sm">{t.name}</p>
-                  <p className="text-xs opacity-75">{t.role}</p>
+                  <p className="font-semibold text-sm text-foreground">{t.name}</p>
+                  <p className="text-xs text-muted-foreground">{t.role}</p>
                 </div>
               </div>
             </motion.div>
