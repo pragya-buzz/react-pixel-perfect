@@ -21,12 +21,12 @@ const ClientsSection = () => {
       variants={fadeIn}
     >
       <div className="container">
-        <motion.p 
+        <motion.h2 
           variants={fadeInUp}
-          className="text-center text-sm font-medium text-muted-foreground mb-8 tracking-wide uppercase"
+          className="text-center text-lg md:text-xl font-semibold text-muted-foreground mb-10"
         >
           Trusted by companies globally
-        </motion.p>
+        </motion.h2>
         <div className="flex items-center gap-8 overflow-hidden">
           <div className="flex animate-marquee gap-16 items-center">
             {[...clients, ...clients].map((client, i) => (
