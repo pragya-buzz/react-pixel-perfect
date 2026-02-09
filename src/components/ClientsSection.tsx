@@ -1,6 +1,6 @@
 import { Sparkles, Shield, Users, Globe, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { fadeIn, viewportSettings } from '@/lib/animations';
+import { fadeIn, fadeInUp, viewportSettings } from '@/lib/animations';
 
 const clients = [
   { icon: Sparkles, name: 'Astrolab' },
@@ -14,13 +14,19 @@ const clients = [
 const ClientsSection = () => {
   return (
     <motion.section 
-      className="py-8 border-y border-border bg-muted/30"
+      className="py-12 md:py-16 border-y border-border bg-muted/30"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSettings}
       variants={fadeIn}
     >
       <div className="container">
+        <motion.p 
+          variants={fadeInUp}
+          className="text-center text-sm font-medium text-muted-foreground mb-8 tracking-wide uppercase"
+        >
+          Trusted by companies globally
+        </motion.p>
         <div className="flex items-center gap-8 overflow-hidden">
           <div className="flex animate-marquee gap-16 items-center">
             {[...clients, ...clients].map((client, i) => (
